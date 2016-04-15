@@ -41,7 +41,6 @@ class ArrayTest < Minitest::Homework
 
   def test_join
     assert_equal "", [].join
-<<<<<<< HEAD
     assert_equal "", [].join(' ')
     assert_equal "", [].join(' - ')
     assert_equal "", [].join(' and ')
@@ -49,16 +48,7 @@ class ArrayTest < Minitest::Homework
     assert_equal "abc", ["a", "b", "c"].join("")
     assert_equal "a b c", ["a", "b", "c"].join(" ")
     assert_equal "a-b-c", ["a", "b", "c"].join(" - ")
-=======
-    assert_equal " ", [].join(' ')
-    assert_equal "-", [].join(' - ')
-    assert_equal " and ", [].join(' and ')
-    assert_equal "abc", ["a", "b", "c"].join
-    assert_equal "abc", ["a", "b", "c"].join("")
-    assert_equal "a b c", ["a", "b", "c"].join(" ")
-    assert_equal "a - b - c", ["a", "b", "c"].join(" - ")
->>>>>>> c2ded148b1e95f4343baae0d144da42f6ecf5841
-    assert_equal "a and b and c", ["a", "b", "c"].join(" and ")
+   assert_equal "a and b and c", ["a", "b", "c"].join(" and ")
   end
 
   def test_length
@@ -70,29 +60,17 @@ class ArrayTest < Minitest::Homework
 
   def test_reverse
     assert_equal [3, 2, 1], [1, 2, 3].reverse
-<<<<<<< HEAD
     assert_equal [:c, :b, :a], [:a, :b, :c].reverse
-=======
-    assert_equal [:c, :b :a], [:a, :b, :c].reverse
->>>>>>> c2ded148b1e95f4343baae0d144da42f6ecf5841
   end
 
   def test_take
     assert_equal [], [].take(1)
     assert_equal [], [].take(2)
-<<<<<<< HEAD
-    assert_equal [a, b, c], ["a", "b", "c", "d", "e"].take(3)
-
-    words = ["fish", "boy", "pumpkin", "flower"]
-    assert_equal ["fish", "boy"], words.take(2)
-    assert_equal words.take(4), words
-=======
     assert_equal ["a", "b", "c"], ["a", "b", "c", "d", "e"].take(3)
 
     words = ["fish", "boy", "pumpkin", "flower"]
     assert_equal ["fish", "boy"], words.take(2)
     assert_equal ["fish", "boy", "pumpkin", "flower"], words
->>>>>>> c2ded148b1e95f4343baae0d144da42f6ecf5841
   end
 
   def test_plus
