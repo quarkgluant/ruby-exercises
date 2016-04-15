@@ -7,70 +7,70 @@ class ArrayTest < Minitest::Homework
   be_gentle!
 
   def test_empty
-    assert_equal __, [].empty?
-    assert_equal __, [1,2,3].empty?
+    assert_equal true, [].empty?
+    assert_equal false, [1,2,3].empty?
   end
 
   def test_first
-    assert_equal __, [].first
-    assert_equal __, [:a, :b, :c].first
-    assert_equal __, ["spoon"].first
+    assert_equal nil, [].first
+    assert_equal :a, [:a, :b, :c].first
+    assert_equal "spoon", ["spoon"].first
   end
 
   def test_last
-    assert_equal __, [].last
-    assert_equal __, [:a, :b, :c].last
-    assert_equal __, ["spoon"].last
+    assert_equal nil, [].last
+    assert_equal :c, [:a, :b, :c].last
+    assert_equal "spoon", ["spoon"].last
   end
 
   def test_access
-    assert_equal __, [][0]
-    assert_equal __, ["a", "b", "c"][0]
-    assert_equal __, ["a", "b", "c"][1]
-    assert_equal __, ["a", "b", "c"][-1]
-    assert_equal __, ["a", "b", "c"][-2]
-    assert_equal __, ["a", "b", "c"][4]
+    assert_equal nil, [][0]
+    assert_equal "a", ["a", "b", "c"][0]
+    assert_equal "b", ["a", "b", "c"][1]
+    assert_equal "c", ["a", "b", "c"][-1]
+    assert_equal "b", ["a", "b", "c"][-2]
+    assert_equal nil, ["a", "b", "c"][4]
   end
 
   def test_index
-    assert_equal __, ["a", "b", "c"].index("a")
-    assert_equal __, ["a", "b", "c"].index("b")
-    assert_equal __, ["a", "b", "c"].index("c")
-    assert_equal __, ["a", "b", "c"].index("d")
+    assert_equal 0, ["a", "b", "c"].index("a")
+    assert_equal 1, ["a", "b", "c"].index("b")
+    assert_equal 2, ["a", "b", "c"].index("c")
+    assert_equal nil, ["a", "b", "c"].index("d")
   end
 
   def test_join
-    assert_equal __, [].join
-    assert_equal __, [].join(' ')
-    assert_equal __, [].join(' - ')
-    assert_equal __, [].join(' and ')
-    assert_equal __, ["a", "b", "c"].join
-    assert_equal __, ["a", "b", "c"].join("")
-    assert_equal __, ["a", "b", "c"].join(" ")
-    assert_equal __, ["a", "b", "c"].join(" - ")
-    assert_equal __, ["a", "b", "c"].join(" and ")
+    assert_equal "", [].join
+    assert_equal "", [].join(' ')
+    assert_equal "", [].join(' - ')
+    assert_equal "", [].join(' and ')
+    assert_equal "abc", ["a", "b", "c"].join
+    assert_equal "abc", ["a", "b", "c"].join("")
+    assert_equal "a b c", ["a", "b", "c"].join(" ")
+    assert_equal "a-b-c", ["a", "b", "c"].join(" - ")
+    assert_equal "a and b and c", ["a", "b", "c"].join(" and ")
   end
 
   def test_length
-    assert_equal __, [].length
-    assert_equal __, [:a].length
-    assert_equal __, [:a, :b].length
-    assert_equal __, [:a, :b, :c].length
+    assert_equal 0, [].length
+    assert_equal 1, [:a].length
+    assert_equal 2, [:a, :b].length
+    assert_equal 3, [:a, :b, :c].length
   end
 
   def test_reverse
-    assert_equal __, [1, 2, 3].reverse
-    assert_equal __, [:a, :b, :c].reverse
+    assert_equal [3, 2, 1], [1, 2, 3].reverse
+    assert_equal [:c, :b, :a], [:a, :b, :c].reverse
   end
 
   def test_take
-    assert_equal __, [].take(1)
-    assert_equal __, [].take(2)
-    assert_equal __, ["a", "b", "c", "d", "e"].take(3)
+    assert_equal [], [].take(1)
+    assert_equal [], [].take(2)
+    assert_equal [a, b, c], ["a", "b", "c", "d", "e"].take(3)
 
     words = ["fish", "boy", "pumpkin", "flower"]
-    assert_equal __, words.take(2)
-    assert_equal __, words
+    assert_equal ["fish", "boy"], words.take(2)
+    assert_equal words.take(4), words
   end
 
   def test_plus
@@ -79,10 +79,10 @@ class ArrayTest < Minitest::Homework
     a3 = [:a] + [:b]
     a4 = [:a, :b] + [:b, :c]
 
-    assert_equal __, a1
-    assert_equal __, a2
-    assert_equal __, a3
-    assert_equal __, a4
+    assert_equal [], a1
+    assert_equal [:a], a2
+    assert_equal [:a, :b], a3
+    assert_equal [:a, :b, :b, :c], a4
   end
 
   def test_concat
