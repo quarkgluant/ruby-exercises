@@ -7,11 +7,11 @@ class BlockTest < Minitest::Homework
   be_gentle!
 
   def test_default_return_value
-    assert_equal __, Proc.new {}.call
-    assert_equal __, Proc.new { |arg| }.call(1)
-    assert_equal __, Proc.new { 1 }.call
-    assert_equal __, Proc.new { |arg| :abc }.call(1)
-    assert_equal __, Proc.new { |arg| arg }.call(1)
+    assert_equal nil, Proc.new {}.call
+    assert_equal 1, Proc.new { |arg| }.call(1)
+    assert_equal 1, Proc.new { 1 }.call
+    assert_equal :abc, Proc.new { |arg| :abc }.call(1)
+    assert_equal 1, Proc.new { |arg| arg }.call(1)
   end
 
   def test_environment_visibility
@@ -23,7 +23,7 @@ class BlockTest < Minitest::Homework
   def test_modifying_environment
     val = 1
     Proc.new { val = 2 }.call
-    assert_equal __, val
+    assert_equal 2, val
   end
 
   def test_passing_arguments
