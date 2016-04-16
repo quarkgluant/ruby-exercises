@@ -47,7 +47,7 @@ class ArrayTest < Minitest::Homework
     assert_equal "abc", ["a", "b", "c"].join
     assert_equal "abc", ["a", "b", "c"].join("")
     assert_equal "a b c", ["a", "b", "c"].join(" ")
-    assert_equal "a-b-c", ["a", "b", "c"].join(" - ")
+    assert_equal "a - b - c", ["a", "b", "c"].join(" - ")
    assert_equal "a and b and c", ["a", "b", "c"].join(" and ")
   end
 

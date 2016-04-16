@@ -7,24 +7,24 @@ class HashTest < Minitest::Homework
   be_gentle!
 
   def test_empty
-    assert_equal __, {}.empty?
-    assert_equal __, {"a" => "apple"}.empty?
+    assert_equal true, {}.empty?
+    assert_equal false, {"a" => "apple"}.empty?
   end
 
   def test_access
     ages = {16 => ["Alice", "Bob"], 24 => ["Charlie", "Dave"], 37 => ["Eve"]}
-    assert_equal __, ages[16]
-    assert_equal __, ages[37]
+    assert_equal ["Alice", "Bob"], ages[16]
+    assert_equal ["Eve"], ages[37]
   end
 
   def test_assignment
     stuff = {"a" => ["aardvark", "apple"], "b" => ["butcher", "ballerina"]}
     stuff["c"] = ["cook", "caramel candy"]
-    assert_equal __, stuff["c"]
+    assert_equal ["cook", "caramel candy"], stuff["c"]
     stuff["b"] = "brandy"
-    assert_equal __, stuff["b"]
+    assert_equal "brandy", stuff["b"]
     stuff["a"] = stuff["a"] + ["apricot"]
-    assert_equal __, stuff["a"]
+    assert_equal ["aardvark", "apple", "apricot"], stuff["a"]
   end
 
   def test_keys
