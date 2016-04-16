@@ -204,80 +204,80 @@ class ArrayTest < Minitest::Homework
   end
 
   def test_unshift
-    assert_equal __, [].unshift(:a)
-    assert_equal __, [].unshift(nil)
-    assert_equal __, [].unshift([])
-    assert_equal __, [:a].unshift(:b)
-    assert_equal __, [:a, :b].unshift(:c)
-    assert_equal __, [1, "apple", :c].unshift(["fish", 7, :x])
+    assert_equal [:a], [].unshift(:a)
+    assert_equal [nil], [].unshift(nil)
+    assert_equal [[]], [].unshift([])
+    assert_equal [:b, :a], [:a].unshift(:b)
+    assert_equal [:c, :a, :b], [:a, :b].unshift(:c)
+    assert_equal ["fish", 7, :x, 1, "apple", :c], [1, "apple", :c].unshift(["fish", 7, :x])
   end
 
   def test_parallel_assignment
     fruit = ["apple", "banana", "cherry", "dewberry"]
 
     a, b, c, d = fruit
-    assert_equal __, a
-    assert_equal __, b
-    assert_equal __, c
-    assert_equal __, d
+    assert_equal "apple", a
+    assert_equal "banana", b
+    assert_equal "cherry", c
+    assert_equal "dewberry", d
 
     a, b = fruit
-    assert_equal __, a
-    assert_equal __, b
+    assert_equal "apple", a
+    assert_equal "banana", b
 
     a, *b = fruit
-    assert_equal __, a
-    assert_equal __, b
+    assert_equal "apple", a
+    assert_equal ["banana", "cherry", "dewberry"], b
 
     *a, b = fruit
-    assert_equal __, a
-    assert_equal __, b
+    assert_equal ["apple", "banana", "cherry"], a
+    assert_equal "dewberry", b
 
     a, b, *c = fruit
-    assert_equal __, a
-    assert_equal __, b
-    assert_equal __, c
+    assert_equal "apple", a
+    assert_equal "banana", b
+    assert_equal ["cherry", "dewberry"], c
 
     *a, b, c = fruit
-    assert_equal __, a
-    assert_equal __, b
-    assert_equal __, c
+    assert_equal ["apple", "banana"], a
+    assert_equal "cherry", b
+    assert_equal "dewberry", c
 
     a, *b, c = fruit
-    assert_equal __, a
-    assert_equal __, b
-    assert_equal __, c
+    assert_equal "apple", a
+    assert_equal ["banana", "cherry"], b
+    assert_equal "dewberry", c
   end
 
   def test_delete
     protein = ["fish", "bacon", "chicken", "bacon", "bacon", "steak"]
 
     deleted = protein.delete("fish")
-    assert_equal __, deleted
-    assert_equal __, protein
+    assert_equal "fish", deleted
+    assert_equal ["bacon", "chicken", "bacon", "bacon", "steak"], protein
 
     deleted = protein.delete("bacon")
-    assert_equal __, deleted
-    assert_equal __, protein
+    assert_equal "bacon", deleted
+    assert_equal ["fish", "chicken", "steak"], protein
   end
 
   def test_delete_at
     veggies = ["carrot", "parsnip", "courgette"]
     veggie = veggies.delete_at(1)
-    assert_equal __, veggie
-    assert_equal __, veggies
+    assert_equal "parsnip", veggie
+    assert_equal ["carrot", "courgette"], veggies
   end
 
   def test_compact
-    assert_equal __, ["a", "b", "c"].compact
-    assert_equal __, ["a", nil, "b", "c", nil, nil].compact
-    assert_equal __, [nil].compact
+    assert_equal ["a", "b", "c"], ["a", "b", "c"].compact
+    assert_equal ["a", "b", "c"], ["a", nil, "b", "c", nil, nil].compact
+    assert_equal [], [nil].compact
   end
 
   def test_flatten
-    assert_equal __, [:a, :b, :c].flatten
-    assert_equal __, [:a, [:b, :c]].flatten
-    assert_equal __, [:a, [:b, [:c]], [:d], :e, [:f, :g]].flatten
+    assert_equal [:a, :b, :c], [:a, :b, :c].flatten
+    assert_equal [:a, :b, :c, :a, :b, :c], [:a, [:b, :c]].flatten
+    assert_equal [:a, :b, :c, :d, :e, :f, :g],[:a, [:b, [:c]], [:d], :e, [:f, :g]].flatten
   end
 
   # Uhm. Halp?
