@@ -28,49 +28,49 @@ class HashTest < Minitest::Homework
   end
 
   def test_keys
-    assert_equal __, {}.keys
-    assert_equal __, {1 => "one", 2 => "two"}.keys
-    assert_equal __, {"a" => "apple", "banana" => "b"}.keys
+    assert_equal [], {}.keys
+    assert_equal [1, 2], {1 => "one", 2 => "two"}.keys
+    assert_equal ["a", "banana"], {"a" => "apple", "banana" => "b"}.keys
   end
 
   def test_values
-    assert_equal __, {}.values
-    assert_equal __, {1 => "one", 2 => "two"}.values
-    assert_equal __, {"a" => "apple", "banana" => "b"}.values
+    assert_equal [], {}.values
+    assert_equal ["one", "two"], {1 => "one", 2 => "two"}.values
+    assert_equal ["apple", "b"], {"a" => "apple", "banana" => "b"}.values
   end
 
   def test_include
     boolean = {}.include?("a")
-    maybe boolean
+    refute boolean
     boolean = {"a" => "apple"}.include?("a")
-    maybe boolean
+    assert boolean
     boolean = {"a" => "apple"}.include?("apple")
-    maybe boolean
+    refute boolean
   end
 
   def test_member
     boolean = {}.member?("a")
-    maybe boolean
+    refute boolean
     boolean = {"a" => "apple"}.member?("a")
-    maybe boolean
+    assert boolean
     boolean = {"a" => "apple"}.member?("apple")
-    maybe boolean
+    refute boolean
   end
 
   def test_invert
     h1 = {"a" => "apple", "b" => "banana"}.invert
-    expected_h1 = __
+    expected_h1 = {"apple" => "a", "banana" => "b"}
     assert_equal expected_h1, h1
 
     h2 = {1 => "one", 2 => "two"}.invert
-    expected_h2 = __
+    expected_h2 = {"one" => 1, "two" => 2}
     assert_equal expected_h2, h2
   end
 
   def test_length
-    assert_equal __, {}.length
-    assert_equal __, {"a" => "apple"}.length
-    assert_equal __, {"a" => "apple", "b" => "banana"}.length
+    assert_equal 0, {}.length
+    assert_equal 1, {"a" => "apple"}.length
+    assert_equal 2, {"a" => "apple", "b" => "banana"}.length
   end
 
   def test_merge
@@ -80,11 +80,11 @@ class HashTest < Minitest::Homework
     h4 = {"a" => "apple"}.merge({"a" => "avocado", "b" => "banana"})
     h5 = {"a" => "apple", "b" => "banana"}.merge({"b" => "breadfruit"})
     
-    expected_h1 = __
-    expected_h2 = __
-    expected_h3 = __
-    expected_h4 = __
-    expected_h5 = __
+    expected_h1 = {}
+    expected_h2 = {"a" => "apple"}
+    expected_h3 = {"a" => "apple", "b" => "banana"}
+    expected_h4 = {"a" => "avocado", "b" => "banana"}
+    expected_h5 = {"a" => "apple", "b" => "breadfruit"}
 
     assert_equal expected_h1, h1
     assert_equal expected_h2, h2
@@ -100,11 +100,11 @@ class HashTest < Minitest::Homework
     h4 = {"a" => "apple"}.update({"a" => "avocado", "b" => "banana"})
     h5 = {"a" => "apple", "b" => "banana"}.update({"b" => "breadfruit"})
     
-    expected_h1 = __
-    expected_h2 = __
-    expected_h3 = __
-    expected_h4 = __
-    expected_h5 = __
+    expected_h1 = {}
+    expected_h2 = {"a" => "apple"}
+    expected_h3 = {"a" => "apple", "b" => "banana"}
+    expected_h4 = {"a" => "avocado", "b" => "banana"}
+    expected_h5 = {"a" => "apple", "b" => "breadfruit"}
 
     assert_equal expected_h1, h1
     assert_equal expected_h2, h2

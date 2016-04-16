@@ -188,7 +188,7 @@ class ArrayTest < Minitest::Homework
     assert_equal [[]], [].push([])
     assert_equal [:a, :b], [:a].push(:b)
     assert_equal [:a, :b, :c], [:a, :b].push(:c)
-    assert_equal [1, "apple", :c, "fish", 7, :x], [1, "apple", :c].push(["fish", 7, :x])
+    assert_equal [1, "apple", :c, ["fish", 7, :x]], [1, "apple", :c].push(["fish", 7, :x])
   end
 
   def test_shift
@@ -209,7 +209,7 @@ class ArrayTest < Minitest::Homework
     assert_equal [[]], [].unshift([])
     assert_equal [:b, :a], [:a].unshift(:b)
     assert_equal [:c, :a, :b], [:a, :b].unshift(:c)
-    assert_equal ["fish", 7, :x, 1, "apple", :c], [1, "apple", :c].unshift(["fish", 7, :x])
+    assert_equal [["fish", 7, :x], 1, "apple", :c], [1, "apple", :c].unshift(["fish", 7, :x])
   end
 
   def test_parallel_assignment
@@ -258,7 +258,7 @@ class ArrayTest < Minitest::Homework
 
     deleted = protein.delete("bacon")
     assert_equal "bacon", deleted
-    assert_equal ["fish", "chicken", "steak"], protein
+    assert_equal ["chicken", "steak"], protein
   end
 
   def test_delete_at
@@ -276,7 +276,7 @@ class ArrayTest < Minitest::Homework
 
   def test_flatten
     assert_equal [:a, :b, :c], [:a, :b, :c].flatten
-    assert_equal [:a, :b, :c, :a, :b, :c], [:a, [:b, :c]].flatten
+    assert_equal [:a, :b, :c], [:a, [:b, :c]].flatten
     assert_equal [:a, :b, :c, :d, :e, :f, :g],[:a, [:b, [:c]], [:d], :e, [:f, :g]].flatten
   end
 
